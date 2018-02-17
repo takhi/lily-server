@@ -22,7 +22,7 @@ function Lily(numbers, target) {
                 return;
             }
             if (numbers[0] * numbers[1] === target) {
-                add(chain.concat(numbers[0] + '*' + numbers[1]));
+                add(chain.concat(numbers[0] + '\u00d7' + numbers[1]));
                 return;
             }
             if (numbers[1] !== 0) {
@@ -47,10 +47,10 @@ function Lily(numbers, target) {
                         }
                         combinator(cut, target, chain.concat(numbers[i] + '-' + numbers[j] + '=' + cut[0]));
                         if ((cut[0] = numbers[i] * numbers[j]) === target) {
-                            add(chain.concat(numbers[i] + '*' + numbers[j]));
+                            add(chain.concat(numbers[i] + '\u00d7' + numbers[j]));
                             break;
                         }
-                        combinator(cut, target, chain.concat(numbers[i] + '*' + numbers[j] + '=' + cut[0]));
+                        combinator(cut, target, chain.concat(numbers[i] + '\u00d7' + numbers[j] + '=' + cut[0]));
                         if (numbers[1] !== 0) {
                             if ((cut[0] = numbers[i] / numbers[j]) === target) {
                                 add(chain.concat(numbers[i] + '/' + numbers[j]));

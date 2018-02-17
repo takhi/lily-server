@@ -14,7 +14,7 @@ const server = http.createServer((request, response) => {
         let target = Number.parseInt(urlInfo.query.target);
         if (Array.isArray(numbers)) {
             let solution = lily(numbers, target);
-            response.writeHead(200, {'content-type': 'application/json'});
+            response.writeHead(200, {'Content-Type': 'application/json', 'Access-Control-Allow-Origin' : '*'});
             response.write(JSON.stringify(solution));
         } else {
             response.statusCode = 400;    

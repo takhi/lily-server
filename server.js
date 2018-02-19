@@ -5,7 +5,7 @@ const lily = require('./engine');
 const PORT = 1000;
 
 // url: /solve?numbers=25,100,75,50,6,4&target=856
-const validRequest = /^\/solve\?/; 
+const validRequest = /^\/solve\?numbers=(,?\d\d?,?){6}&target=\d{3}/; 
 
 const server = http.createServer((request, response) => {
     if (validRequest.test(request.url)) {

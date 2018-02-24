@@ -12,10 +12,10 @@ const server = http.createServer((request, response) => {
         let urlInfo = url.parse(request.url, true);
         let numbers = JSON.parse(`[${urlInfo.query.numbers}]`);
         let target = Number.parseInt(urlInfo.query.target);
-        console.log(`numbers: [${numbers}]\ntarget: ${target}`);
+        console.log(`NUMS ${numbers} TARG ${target}`);
         response.writeHead(200, {'Content-Type': 'application/json', 'Access-Control-Allow-Origin' : '*'});
         let solution = lily(numbers, target);
-        console.log('done');
+        console.log(`SOL LENGTH ${solution.length}`);
         response.write(JSON.stringify(solution));
     } else {
         response.writeHead(400, {'Access-Control-Allow-Origin' : '*'});
